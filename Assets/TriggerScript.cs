@@ -6,11 +6,14 @@ using UnityEngine.Playables;
 public class TriggerScript : MonoBehaviour
 {
     public PlayableDirector timeline;
-    public GameObject obj;
+    public GameObject[] obj;
 
     void Start()
     {
-        obj.SetActive(false);
+        foreach (GameObject enemy in obj)
+        {
+            enemy.SetActive(false);
+        }
     }
 
     public bool OneTimeTrigger = false;
@@ -19,7 +22,10 @@ public class TriggerScript : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            obj.SetActive(true);
+            foreach (GameObject enemy in obj)
+            {
+                enemy.SetActive(true);
+            }
 
             timeline.Play();
 
@@ -35,7 +41,10 @@ public class TriggerScript : MonoBehaviour
 
     void OnPlayableDirectorStopped(PlayableDirector aDirector)
     {
-        obj.SetActive(false);
+        foreach (GameObject enemy in obj)
+        {
+            enemy.SetActive(false);
+        }
     }
 
 
