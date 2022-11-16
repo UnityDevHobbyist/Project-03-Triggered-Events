@@ -29,7 +29,7 @@ public class TriggerScript : MonoBehaviour
 
             timeline.Play();
 
-            if (OneTimeTrigger == true)
+            if (OneTimeTrigger == true && this.gameObject != null)
             {
                 Destroy(this.gameObject);
             }
