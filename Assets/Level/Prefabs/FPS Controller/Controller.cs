@@ -44,6 +44,7 @@ public class Controller : MonoBehaviour
 
     void Awake()
     {
+        MainCamera = Camera.main;
         Instance = this;
     }
 
